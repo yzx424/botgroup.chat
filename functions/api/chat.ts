@@ -48,7 +48,8 @@ export async function onRequestPost({ env, request }) {
       model: model,
       messages: messages,
       stream: true,
-    });
+      thinking: modelConfig.baseURL.includes("volces.com") ? { type: "disabled" } : undefined
+} as any);
 
     // 创建 ReadableStream
     const readable = new ReadableStream({
